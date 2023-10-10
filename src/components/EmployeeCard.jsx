@@ -16,7 +16,13 @@ const EmployeeCard = ({employee}) => {
   };
   return (
     <View style={styles.item}>
-      <View style={{display: 'flex', flexDirection: 'row'}}>
+      <View
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          width: '80%',
+        }}>
         <View style={styles.userImageContainer}>
           <Text style={styles.userImage}>
             {employee.firstName.slice(0, 1)}
@@ -30,7 +36,7 @@ const EmployeeCard = ({employee}) => {
           <Text style={styles.userDesignation}>{employee.jobTitle}</Text>
         </View>
       </View>
-      <View style={{justifyContent: 'center'}}>
+      <View style={{justifyContent: 'center', alignItems: 'center'}}>
         <Pressable
           onPress={() => handleToggleFavorite(employee.id, isFavorite)}>
           {isFavorite ? (
@@ -55,7 +61,6 @@ const styles = StyleSheet.create({
     padding: 20,
     width: '90%',
     alignSelf: 'center',
-    justifyContent: 'space-between',
     borderRadius: 5,
     marginBottom: 12,
   },
@@ -82,6 +87,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     color: '#000',
-    alignSelf: 'center',
+  },
+  userDesignation: {
+    fontSize: 16,
+    color: 'gray',
   },
 });
